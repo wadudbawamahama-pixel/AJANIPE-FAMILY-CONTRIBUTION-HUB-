@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJANIPE Family Contribution Hub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6f4;
+      color: #24332b;
+    }
+
+    header {
+      background: #14532d;
+      color: white;
+      padding: 28px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 0 16px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .welcome h2 {
+      color: #14532d;
+      margin-top: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid #15803d;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    .amount {
+      font-size: 25px;
+      font-weight: bold;
+      color: #166534;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 15px;
+      background: #dcfce7;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #52635a;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>AJANIPE Family Contribution Hub</h1>
+    <p>Transparency. Accountability. Family Unity.</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to Our Family Hub</h2>
+
+      <p>
+        Our goal is to manage family contributions transparently,
+        maintain accurate records, and strengthen accountability.
+      </p>
+
+      <p>
+        Each active member has a monthly contribution obligation
+        of <strong>GH₵20</strong>.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Monthly Contribution</h3>
+        <div class="amount">GH₵20</div>
+        <p>Per active member</p>
+      </div>
+
+      <div class="card">
+        <h3>Record Keeping</h3>
+        <p>Organized contribution records and payment histories.</p>
+      </div>
+
+      <div class="card">
+        <h3>Transparency</h3>
+        <p>Clear reporting to support family accountability.</p>
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>Project status:</strong>
+      Initial website prototype.
+
+      <br>
+
+      <strong>Important:</strong>
+      This is an early demonstration page. Login, database,
+      payment records, and user permissions have not yet been
+      implemented.
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 AJANIPE Family Contribution Hub
+  </footer>
+</body>
+</html>

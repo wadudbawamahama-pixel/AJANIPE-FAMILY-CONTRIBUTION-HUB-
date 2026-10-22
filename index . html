@@ -1,153 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJANIPE Family Contribution Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJANIPE Family Contribution Hub</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f6f4;
-      color: #24332b;
-    }
-
-    header {
-      background: #14532d;
-      color: white;
-      padding: 28px 18px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 26px;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 25px auto;
-      padding: 0 16px;
-    }
-
-    .welcome {
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .welcome h2 {
-      color: #14532d;
-      margin-top: 0;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      border-left: 4px solid #15803d;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 15px;
-    }
-
-    .amount {
-      font-size: 25px;
-      font-weight: bold;
-      color: #166534;
-    }
-
-    .notice {
-      margin-top: 20px;
-      padding: 15px;
-      background: #dcfce7;
-      border-radius: 8px;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 15px;
-      color: #52635a;
-      font-size: 13px;
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+header{background:#064e3b;color:white;padding:25px 18px}
+header h1{margin:0;font-size:25px}
+header p{margin:9px 0 0;color:#d1fae5}
+main{max-width:1000px;margin:25px auto;padding:0 15px}
+h2{font-size:19px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.card,.panel{background:white;padding:18px;border-radius:12px;box-shadow:0 2px 8px #0000000d;margin-bottom:18px}
+.card p{font-size:13px;color:#64748b;margin:0}
+.card h2{font-size:23px;color:#047857;margin:12px 0 0}
+label{display:block;font-size:14px;margin:12px 0 6px}
+input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:7px;font-size:15px;background:white}
+button{padding:12px 16px;border:0;border-radius:7px;background:#047857;color:white;font-size:14px;font-weight:bold;cursor:pointer;margin-top:12px}
+button:hover{background:#065f46}
+.secondary{background:#334155}
+.danger{background:#b91c1c}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #e2e8f0;font-size:14px}
+th{background:#f8fafc}
+.notice{background:#ecfdf5;padding:13px;border-radius:8px;font-size:13px;color:#065f46}
+footer{text-align:center;padding:20px;color:#64748b;font-size:13px}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>AJANIPE Family Contribution Hub</h1>
-    <p>Transparency. Accountability. Family Unity.</p>
-  </header>
+<header>
+<h1>AJANIPE Family Contribution Hub</h1>
+<p>A family contribution management system for tracking monthly contributions, payments, outstanding balances and financial reports.</p>
+</header>
 
-  <main>
-    <section class="welcome">
-      <h2>Welcome to Our Family Hub</h2>
+<main>
+<div class="notice">
+<strong>Monthly contribution: GH₵20 per member.</strong><br>
+This is a working demonstration. Records are stored in this browser only; they are not yet shared securely between family members.
+</div>
 
-      <p>
-        Our goal is to manage family contributions transparently,
-        maintain accurate records, and strengthen accountability.
-      </p>
+<h2>Financial Overview</h2>
+<div class="cards">
+<div class="card"><p>Total Members</p><h2 id="members">0</h2></div>
+<div class="card"><p>Total Expected</p><h2 id="expected">GH₵0.00</h2></div>
+<div class="card"><p>Total Collected</p><h2 id="collected">GH₵0.00</h2></div>
+<div class="card"><p>Outstanding</p><h2 id="balance">GH₵0.00</h2></div>
+</div>
 
-      <p>
-        Each active member has a monthly contribution obligation
-        of <strong>GH₵20</strong>.
-      </p>
-    </section>
+<section class="panel">
+<h2>Register Family Member</h2>
+<div class="formgrid">
+<div>
+<label for="name">Full Name</label>
+<input id="name" placeholder="Enter member's name">
+</div>
+<div>
+<label for="phone">Phone Number (Optional)</label>
+<input id="phone" placeholder="Enter phone number">
+</div>
+</div>
+<button onclick="addMember()">Add Member</button>
+</section>
 
-    <section class="cards">
-      <div class="card">
-        <h3>Monthly Contribution</h3>
-        <div class="amount">GH₵20</div>
-        <p>Per active member</p>
-      </div>
+<section class="panel">
+<h2>Record Monthly Payment</h2>
+<div class="formgrid">
+<div>
+<label for="member">Select Member</label>
+<select id="member"><option value="">Select a member</option></select>
+</div>
+<div>
+<label for="month">Contribution Month</label>
+<input type="month" id="month">
+</div>
+<div>
+<label for="amount">Amount Paid (GH₵)</label>
+<input type="number" id="amount" min="0.01" step="0.01" placeholder="20.00">
+</div>
+</div>
+<button onclick="recordPayment()">Record Payment</button>
+</section>
 
-      <div class="card">
-        <h3>Record Keeping</h3>
-        <p>Organized contribution records and payment histories.</p>
-      </div>
+<section class="panel">
+<h2>Family Members & Outstanding Balances</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Member</th><th>Expected</th><th>Paid</th><th>Outstanding</th></tr></thead>
+<tbody id="memberRows"></tbody>
+</table>
+</div>
+</section>
 
-      <div class="card">
-        <h3>Transparency</h3>
-        <p>Clear reporting to support family accountability.</p>
-      </div>
-    </section>
+<section class="panel">
+<h2>Payment History</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Member</th><th>Month</th><th>Amount</th></tr></thead>
+<tbody id="paymentRows"></tbody>
+</table>
+</div>
+<button class="secondary" onclick="downloadReport()">Download Financial Report</button>
+</section>
 
-    <section class="notice">
-      <strong>Project status:</strong>
-      Initial website prototype.
+<footer>AJANIPE Family Contribution Hub · Family financial management</footer>
+</main>
 
-      <br>
+<script>
+const KEY = "ajanipe_demo_v1";
+let data;
 
-      <strong>Important:</strong>
-      This is an early demonstration page. Login, database,
-      payment records, and user permissions have not yet been
-      implemented.
-    </section>
-  </main>
+try {
+  data = JSON.parse(localStorage.getItem(KEY)) || {members:[], payments:[]};
+} catch(e) {
+  data = {members:[], payments:[]};
+}
 
-  <footer>
-    &copy; 2026 AJANIPE Family Contribution Hub
-  </footer>
+const money = n => "GH₵" + n.toFixed(2);
+const currentMonth = () => new Date().toISOString().slice(0,7);
+
+document.getElementById("month").value = currentMonth();
+
+function save(){
+  localStorage.setItem(KEY, JSON.stringify(data));
+  render();
+}
+
+function addMember(){
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if(!name){
+    alert("Please enter the member's name.");
+    return;
+  }
+
+  data.members.push({
+    id: Date.now() + Math.random(),
+    name,
+    phone
+  });
+
+  document.getElementById("name").value = "";
+  document.getElementById("phone").value = "";
+  save();
+}
+
+function recordPayment(){
+  const id = Number(document.getElementById("member").value);
+  const month = document.getElementById("month").value;
+  const amount = Number(document.getElementById("amount").value);
+
+  if(!id || !month || !Number.isFinite(amount) || amount <= 0){
+    alert("Select a member and month, then enter a valid payment.");
+    return;
+  }
+
+  data.payments.push({
+    memberId:id,
+    month,
+    amount,
+    date:new Date().toISOString()
+  });
+
+  document.getElementById("amount").value = "";
+  save();
+  alert("Payment recorded successfully.");
+}
+
+function render(){
+  const month = document.getElementById("month").value || currentMonth();
+  const members = data.members;
+  const payments = data.payments;
+
+  const expected = members.length * 20;
+  const collected = payments
+    .filter(p => p.month === month)
+    .reduce((sum,p) => sum + p.amount,0);
+
+  document.getElementById("members").textContent = members.length;
+  document.getElementById("expected").textContent = money(expected);
+  document.getElementById("collected").textContent = money(collected);
+  document.getElementById("balance").textContent = money(Math.max(0,expected-collected));
+
+  const select = document.getElementById("member");
+  const oldValue = select.value;
+  select.innerHTML = '<option value="">Select a member</option>';
+
+  members.forEach(m => {
+    const option = document.createElement("option");
+    option.value = m.id;
+    option.textContent = m.name;
+    select.appendChild(option);
+  });
+  select.value = oldValue;
+
+  document.getElementById("memberRows").innerHTML = members.map(m => {
+    const paid = payments
+      .filter(p => p.memberId === m.id && p.month === month)
+      .reduce((sum,p) => sum + p.amount,0);
+
+    return `<tr>
+      <td>${escapeHTML(m.name)}</td>
+      <td>${money(20)}</td>
+      <td>${money(paid)}</td>
+      <td>${money(Math.max(0,20-paid))}</td>
+    </tr>`;
+  }).join("") || '<tr><td colspan="4">No members registered yet.</td></tr>';
+
+  document.getElementById("paymentRows").innerHTML = [...payments]
+    .reverse()
+    .map(p => {
+      const m = members.find(x => x.id === p.memberId);
+      return `<tr>
+        <td>${escapeHTML(m ? m.name : "Unknown member")}</td>
+        <td>${escapeHTML(p.month)}</td>
+        <td>${money(p.amount)}</td>
+      </tr>`;
+    }).join("") || '<tr><td colspan="3">No payments recorded yet.</td></tr>';
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+function downloadReport(){
+  const month = document.getElementById("month").value || currentMonth();
+  const lines = [["Member","Month","Amount Paid (GH₵)"]];
+
+  data.payments.filter(p => p.month === month).forEach(p => {
+    const m = data.members.find(x => x.id === p.memberId);
+    lines.push([m ? m.name : "Unknown member",p.month,p.amount.toFixed(2)]);
+  });
+
+  const csv = lines.map(row =>
+    row.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(",")
+  ).join("\n");
+
+  const blob = new Blob(["\uFEFF" + csv],{type:"text/csv;charset=utf-8;"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "AJANIPE-Financial-Report-" + month + ".csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById("month").addEventListener("change",render);
+render();
+</script>
 </body>
 </html>
